@@ -1,5 +1,5 @@
 import '../../styles/preparation.css';
-import { addBoardListeners } from '../DOMManipulation/preparationDOM';
+import { addBoardListeners, addDirectionListener } from '../DOMManipulation/preparationDOM';
 
 export function renderPreparation() {
     const body = document.querySelector('body');
@@ -7,6 +7,7 @@ export function renderPreparation() {
     <div id="preparation">
         <header>
             <h1>PLACE YOUR FLEET...</h1>
+            <button id="direction-button">HORIZONTAL</button>
         </header>
         <main>
             <div id="board">
@@ -18,6 +19,7 @@ export function renderPreparation() {
     const board = document.getElementById("board");
     createBoard(board);
 
+    addDirectionListener();
     addBoardListeners();
 }
 

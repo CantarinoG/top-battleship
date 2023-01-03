@@ -1,7 +1,8 @@
 #preparation header {
     height: 20vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
     font-family: var(--spinnaker);
     color: var(--blue);
@@ -35,4 +36,16 @@
     aspect-ratio: 1/1;
     height: calc(min(76vh, 98vw) / 10);
     border: 0.1px solid white;
+}
+
+#preparation button {
+    background-color: var(--blue);
+    border: 1px solid var(--blue);
+    color: white;
+    padding: 4px;
+}
+
+#preparation button:hover {
+    background-color: white;
+    color: var(--blue);
 }

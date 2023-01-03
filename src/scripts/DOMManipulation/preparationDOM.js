@@ -1,9 +1,11 @@
+import { renderMatch } from '../UI/matchUI';
+
 class Board { //A virtual board with a boardArray property that represents which tiles contains part of a ship and which tiles doesn't
-    constructor(tiles = 5){
+    constructor(tiles = 5, isHorizontal = true){
         this.tiles = tiles; //How many tiles the current ship occupies
+        this.isHorizontal = isHorizontal; 
         this.boardArray = [];
         this.initializeBoardArray();
-        console.log(this.boardArray);
     }
     initializeBoardArray(){
         for (let i = 0; i < 10; i += 1) {
@@ -16,29 +18,66 @@ class Board { //A virtual board with a boardArray property that represents which
     }
 }
 
+const isTileValid = require('../logic/preparationLogic');
+
 const board = new Board();
+
+export function addDirectionListener(){
+    const directionButton = document.getElementById('direction-button');
+    directionButton.onclick = () => {
+        if (board.isHorizontal){
+            board.isHorizontal = false;
+            directionButton.textContent = 'VERTICAL';
+        } else {
+            board.isHorizontal = true;
+            directionButton.textContent = 'HORIZONTAL';
+        }
+    }
+}
 
 export function addBoardListeners(){
     for (let i = 0; i < 10; i += 1) {
         for (let j = 0; j < 10; j += 1) {
             const tile = document.querySelector(`.column[data-coord="${i}${j}"]`); 
             tile.onclick = () => {
-                if(functionToSeeIfTileIsAvailable(whateverArgumentItNeeds)) {
-                    //mark all occupied tiles in the dom
-                    //mark all occupied tiles in the boardArray
-                    //Descrease tiles
-                    //If tiles equal 0 -> next stage
+                const coordinates = isTileValid(board.boardArray, i, j, board.tiles, board.isHorizontal);
+                if(coordinates) {
+                    for (let k = 0; k < coordinates.length; k++) {
+                        const x = coordinates[k][0]; 
+                        const y = coordinates[k][1];
+                        board.boardArray[x][y] = 1;
+                        const tileToMark = document.querySelector(`.column[data-coord="${x}${y}"]`); 
+                        tileToMark.style.background = '#efefef';
+                    }
+                    board.tiles -= 1;
+                    if(board.tiles === 0){
+                        console.log('end')
+                        renderMatch();
+                    }
                 } 
+            }
+            tile.onmouseenter = () => {
+                const coordinates = isTileValid(board.boardArray, i, j, board.tiles, board.isHorizontal);
+                if(coordinates) {
+                    for (let k = 0; k < coordinates.length; k++) {
+                        const x = coordinates[k][0]; 
+                        const y = coordinates[k][1];
+                        const tileToMark = document.querySelector(`.column[data-coord="${x}${y}"]`); 
+                        tileToMark.style.background = 'rgb(68 139 111)';
+                    }
+                }
+            }
+            tile.onmouseleave = () => {
+                const coordinates = isTileValid(board.boardArray, i, j, board.tiles, board.isHorizontal);
+                if(coordinates) {
+                    for (let k = 0; k < coordinates.length; k++) {
+                        const x = coordinates[k][0]; 
+                        const y = coordinates[k][1];
+                        const tileToMark = document.querySelector(`.column[data-coord="${x}${y}"]`); 
+                        tileToMark.style.background = 'transparent';
+                    }
+                }
             }
         }
     }
 }
-
-
-/*
-User will click on a tile
-if state equals 5, the program will check if the tile clicked supports five unit(check if there are sufficient tiles and they are not occupied_)
-if the square in valid: the square and the following squares will become marked and state is decreased
-if the square is not valid: nothing happens
-repeat...
-*/

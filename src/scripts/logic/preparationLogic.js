@@ -1,4 +1,4 @@
-function isTileValid(boardArray, coordX, coordY, size, isHorizontal){
+function isTileValid(boardArray, coordX, coordY, size, isHorizontal){ //Return false if not valid; Return an array wiht used coordinates if true
     const tiles = [];
     if(isHorizontal){
         for (let i = 0; i < size; i += 1) {
@@ -31,18 +31,3 @@ function isTileValid(boardArray, coordX, coordY, size, isHorizontal){
 }
 
 module.exports = isTileValid;
-
-/*
-Receberei um array 10 x 10
-Receberei coordenadas x e y;
-Receberei um tamanho
-Receberei uma direção
-
-Checarei o seguinte:
-
-Naquelas coordenadas, se aquele quadrado estiver vazio(0) e os próximos size - 1 quadrados 
-horizontais ou verticais exisitirem e estiverem vazios: eu retorno todos eles num vetor de coordenadas
-
-Do contrário: eu retorno falso
-
-*/
