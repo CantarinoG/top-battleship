@@ -1,0 +1,38 @@
+#preparation header {
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--spinnaker);
+    color: var(--blue);
+}
+
+#preparation main {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#board {
+    aspect-ratio: 1/1;
+    height: min(76vh, 98vw);
+    display: flex;
+    flex-direction: column;
+
+    background-image: url('../assets/pexels-ekrulila-4035587.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#board .row {
+    display: flex;
+}
+
+#board .column {
+    flex: 1;
+    aspect-ratio: 1/1;
+    height: calc(min(76vh, 98vw) / 10);
+    border: 0.1px solid white;
+}

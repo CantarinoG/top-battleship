@@ -3,6 +3,7 @@
 :root {
     --spinnaker: 'Spinnaker', sans-serif;
     --lato: 'Lato', sans-serif;
+    --blue: #1B9AAA;
 }
 
 * {
