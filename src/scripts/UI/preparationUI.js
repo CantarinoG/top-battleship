@@ -1,4 +1,5 @@
 import '../../styles/preparation.css';
+import { addBoardListeners } from '../DOMManipulation/preparationDOM';
 
 export function renderPreparation() {
     const body = document.querySelector('body');
@@ -16,6 +17,8 @@ export function renderPreparation() {
 
     const board = document.getElementById("board");
     createBoard(board);
+
+    addBoardListeners();
 }
 
 function createBoard(board) {
@@ -23,7 +26,7 @@ function createBoard(board) {
     for (let i = 0; i < 10; i += 1) {
       boardHtml += "<div class='row'>";
       for (let j = 0; j < 10; j += 1) {
-        boardHtml += `<div class='column'></div>`;
+        boardHtml += `<div class='column' data-coord='${i}${j}'></div>`;
       }
       boardHtml += '</div>';
     }

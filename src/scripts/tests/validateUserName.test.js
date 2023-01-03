@@ -1,4 +1,3 @@
-//import { validateUserName } from "../logic/mainMenuLogic";
 const validateUserName = require('../logic/mainMenuLogic');
 
 test('Default test 1', () => {
