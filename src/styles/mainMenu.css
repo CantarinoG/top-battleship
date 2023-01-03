@@ -11,7 +11,7 @@
     box-sizing: border-box;
 }
 
-body {
+#main-menu {
     height: 100vh;
     background-image: url('../assets/pexels-alessandro-vollborth-13342949.jpg');
     background-repeat: no-repeat;
@@ -24,36 +24,51 @@ body {
     justify-content: space-around;
 }
 
-body h1 {
+#main-menu h1 {
     font-family: var(--spinnaker);
     font-size: 11vw;
 }
 
-body form {
+#main-menu form {
     font-family: var(--lato);
     font-size: large;
     display: flex;
     flex-direction: column;
 }
 
-.name-input {
-    border-bottom: 1px solid white;
-}
-
-body form img {
+#main-menu form img {
     filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(182deg) brightness(104%) contrast(103%);
     height: 21.6px;
     aspect-ratio: 1/1;
 }
 
-body form input {
+#main-menu form input {
     background-color: transparent;
     border: none;
     color: white;
     font-family: var(--lato);
     font-size: large;
+    text-align: center;
 }
 
-body form input::placeholder {
+#main-menu form input::placeholder {
     color: rgb(209, 209, 209);
+}
+
+#main-menu form input:focus {
+    outline: none;
+}
+
+#main-menu form button {
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid white;
+    font-family: var(--spinnaker);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#main-menu form button:hover {
+    background-color: transparent;
+    color: white;
 }

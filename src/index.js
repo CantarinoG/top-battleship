@@ -1,3 +1,3 @@
-import { renderMainMenu } from "./UI/mainMenuUI";
+import { renderMainMenu } from "./scripts/UI/mainMenuUI";
 
 renderMainMenu();
