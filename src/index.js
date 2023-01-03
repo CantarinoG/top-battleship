@@ -1,3 +1,4 @@
-import { renderMainMenu } from "./scripts/UI/mainMenuUI";
+import { renderMainMenu, setFavicon } from "./scripts/UI/mainMenuUI";
 
 renderMainMenu();
+setFavicon();

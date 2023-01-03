@@ -1,5 +1,6 @@
 import "../../styles/mainMenu.css"
 import writeIcon from "../../assets/write.svg"
+import favicon from "../../assets/ship.svg"
 
 import { addFormListener } from "../DOMManipulation/mainMenuDOM";
 
@@ -22,3 +23,10 @@ export function renderMainMenu() {
     addFormListener(document.getElementById("main-menu-form"), document.getElementById("main-menu-input"));
 }
 
+export function setFavicon() {
+    const headTitle = document.querySelector('head');
+    const faviconLink = document.createElement('link');
+    faviconLink.setAttribute('rel', 'shortcut icon');
+    faviconLink.setAttribute('href', favicon);
+    headTitle.appendChild(faviconLink);
+  }

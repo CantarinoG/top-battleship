@@ -9,7 +9,6 @@ export function addFormListener(form, input){
         e.preventDefault();
         const name = validateUserName(input.value);
         userName = name;
-        console.log(userName);
         renderPreparation();
     });
 }
