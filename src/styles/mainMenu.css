@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Spinnaker&display=swap');
+
+:root {
+    --spinnaker: 'Spinnaker', sans-serif;
+    --lato: 'Lato', sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-image: url('../assets/pexels-alessandro-vollborth-13342949.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+body h1 {
+    font-family: var(--spinnaker);
+    font-size: 11vw;
+}
+
+body form {
+    font-family: var(--lato);
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+}
+
+.name-input {
+    border-bottom: 1px solid white;
+}
+
+body form img {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(182deg) brightness(104%) contrast(103%);
+    height: 21.6px;
+    aspect-ratio: 1/1;
+}
+
+body form input {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-family: var(--lato);
+    font-size: large;
+}
+
+body form input::placeholder {
+    color: rgb(209, 209, 209);
+}
