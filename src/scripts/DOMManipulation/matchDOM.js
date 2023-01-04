@@ -20,6 +20,7 @@ function enemyRandomMove(userArray, userShipsHit) {
                 userShipsHit.hit += 1;
                 if(userShipsHit.hit === 15) {
                     document.getElementById("display").textContent = "ENEMY WON!";
+                    document.getElementById('reset-button').style.display = "block";
                             return undefined;
                 }
             } else {
@@ -34,6 +35,11 @@ function enemyRandomMove(userArray, userShipsHit) {
 }
 
 export function applyMatchListeners(userArray){
+
+    const resetButton = document.getElementById('reset-button');
+    resetButton.onclick = () => {
+        window.location.reload();
+    };
 
     const enemyArray = generateEnemyArray();
 
@@ -52,6 +58,7 @@ export function applyMatchListeners(userArray){
                         enemyShipsHit += 1;
                         if(enemyShipsHit === 15){
                             document.getElementById("display").textContent = "YOU WON!";
+                            resetButton.style.display = "block";
                             return undefined;
                         }
                         enemyRandomMove(userArray, myShipsHit);

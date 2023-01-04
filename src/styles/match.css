@@ -58,3 +58,16 @@
         height: calc(80vw / 10);
     }
   }
+
+#match button {
+    background-color: var(--blue);
+    border: 1px solid var(--blue);
+    color: white;
+    padding: 4px;
+    display: none;
+}
+
+#match button:hover {
+    background-color: white;
+    color: var(--blue);
+}

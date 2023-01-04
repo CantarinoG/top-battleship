@@ -9,6 +9,7 @@ export function renderMatch(userName = "Admiral", playerBoardArray = null) {
     <div id="match">
         <header>
             <h1 id="display">MAKE YOUR MOVE...</h1>
+            <button id="reset-button">RESET</button>
         </header>
         <main>
             <div id="player-container">
