@@ -1,11 +1,22 @@
-import "../../styles/match.css"
+import '../../styles/match.css';
 
-import { createBoard } from "./preparationUI";
-import { applyMatchListeners } from "../DOMManipulation/matchDOM";
+import { createBoard } from './preparationUI';
+import { applyMatchListeners } from '../DOMManipulation/matchDOM';
 
-export function renderMatch(userName = "Admiral", playerBoardArray = null) {
-    const body = document.querySelector('body');
-    body.innerHTML = `
+function renderBoardContent(playerBoardArray) {
+  for (let i = 0; i < 10; i += 1) {
+    for (let j = 0; j < 10; j += 1) {
+      if (playerBoardArray[i][j] === 1) {
+        const tileToMark = document.querySelector(`#player-board .column[data-coord="${i}${j}"]`);
+        tileToMark.style.background = '#efefef';
+      }
+    }
+  }
+}
+
+export function renderMatch(userName = 'Admiral', playerBoardArray = null) {
+  const body = document.querySelector('body');
+  body.innerHTML = `
     <div id="match">
         <header>
             <h1 id="display">MAKE YOUR MOVE...</h1>
@@ -24,23 +35,11 @@ export function renderMatch(userName = "Admiral", playerBoardArray = null) {
     </div>
     `;
 
-    const playerBoard = document.getElementById('player-board');
-    const enemyBoard = document.getElementById('enemy-board');
-    createBoard(playerBoard);
-    createBoard(enemyBoard);
+  const playerBoard = document.getElementById('player-board');
+  const enemyBoard = document.getElementById('enemy-board');
+  createBoard(playerBoard);
+  createBoard(enemyBoard);
 
-    renderBoardContent(playerBoardArray);
-    applyMatchListeners(playerBoardArray);
-
-}
-
-function renderBoardContent(playerBoardArray){
-    for (let i = 0; i < 10; i += 1) {
-        for (let j = 0; j < 10; j += 1) {
-            if(playerBoardArray[i][j] === 1){
-                const tileToMark = document.querySelector(`#player-board .column[data-coord="${i}${j}"]`); 
-                        tileToMark.style.background = '#efefef';
-            }
-        }        
-    }
+  renderBoardContent(playerBoardArray);
+  applyMatchListeners(playerBoardArray);
 }
