@@ -1,7 +1,7 @@
 import { renderMatch } from '../UI/matchUI';
 
 class Board { //A virtual board with a boardArray property that represents which tiles contains part of a ship and which tiles doesn't
-    constructor(tiles = 5, isHorizontal = true){
+    constructor(tiles = 1, isHorizontal = true){
         this.tiles = tiles; //How many tiles the current ship occupies
         this.isHorizontal = isHorizontal; 
         this.boardArray = [];
@@ -63,7 +63,7 @@ export function addBoardListeners(){
                         const x = coordinates[k][0]; 
                         const y = coordinates[k][1];
                         const tileToMark = document.querySelector(`.column[data-coord="${x}${y}"]`); 
-                        tileToMark.style.background = 'rgb(68 139 111)';
+                        tileToMark.style.background = '#1B9AAA';
                     }
                 }
             }

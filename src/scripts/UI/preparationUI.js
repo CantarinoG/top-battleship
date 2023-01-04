@@ -23,7 +23,7 @@ export function renderPreparation() {
     addBoardListeners();
 }
 
-function createBoard(board) {
+export function createBoard(board) {
     let boardHtml = '';
     for (let i = 0; i < 10; i += 1) {
       boardHtml += "<div class='row'>";
