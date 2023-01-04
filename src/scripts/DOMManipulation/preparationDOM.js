@@ -1,7 +1,11 @@
 import { renderMatch } from '../UI/matchUI';
 
-class Board { //A virtual board with a boardArray property that represents which tiles contains part of a ship and which tiles doesn't
-    constructor(tiles = 1, isHorizontal = true){
+import { userName } from './mainMenuDOM';
+
+const isTileValid = require('../logic/preparationLogic');
+
+export class Board { //A virtual board with a boardArray property that represents which tiles contains part of a ship and which tiles doesn't
+    constructor(tiles = 5, isHorizontal = true){
         this.tiles = tiles; //How many tiles the current ship occupies
         this.isHorizontal = isHorizontal; 
         this.boardArray = [];
@@ -16,9 +20,22 @@ class Board { //A virtual board with a boardArray property that represents which
             this.boardArray.push(row);
         }
     }
-}
-
-const isTileValid = require('../logic/preparationLogic');
+    randomValidBoardArray(){
+        while(this.tiles){
+            const coordx = Math.floor(Math.random() * 10);
+            const coordy = Math.floor(Math.random() * 10);
+            const direction = Math.floor(Math.random() * 2);
+            const coordinates = isTileValid(this.boardArray, coordx, coordy, this.tiles, direction);
+            if(coordinates) { 
+                for (let k = 0; k < coordinates.length; k++) {
+                    const x = coordinates[k][0]; 
+                    const y = coordinates[k][1];
+                    this.boardArray[x][y] = 1;
+                }
+                this.tiles -= 1;
+            } 
+        }
+}}
 
 const board = new Board();
 
@@ -52,7 +69,7 @@ export function addBoardListeners(){
                     board.tiles -= 1;
                     if(board.tiles === 0){
                         console.log('end')
-                        renderMatch();
+                        renderMatch(userName, board.boardArray);
                     }
                 } 
             }
