@@ -1,41 +1,30 @@
-<details open>
-<summary>English</summary>
-<br>
+# Battleship
 
-### Battleship
+### Overview
 
-Project from [TheOdinProject](https://www.theodinproject.com/lessons/node-path-javascript-battleship).
+This project is an implementation of the classic game "Battleship." Players position their fleet on a 10x10 grid and engage in a strategic battle to sink the enemy's ships before losing their own.
 
-This project consists in an implementation of the classic game "Battleship".
+The game features five ships of varying sizes (5, 4, 3, 2, and 1 units), and the enemy's ships are placed randomly on the grid. The objective is to locate and destroy all enemy ships while keeping your own fleet intact.
 
-There are 5 ships(sizes: 5, 4, 3, 2 and 1) to position in a 10x10 grid.
+### How to Play
 
-The enemy's ships are placed randomly.
+1. Place your fleet on the 10x10 grid. Each ship has a unique size (5, 4, 3, 2, and 1 units).
+2. Take turns firing at enemy positions to uncover and sink their ships.
+3. The game ends when either:
+   - All enemy ships are destroyed.
+   - All your ships are destroyed.
 
-The game ends once you hit all the enemy's ships or when they hit all of yours.
+### Features
 
-Deploy link: https://cantarinog.github.io/top-battleship/
+- **Customizable Fleet Placement**: Put ships onto the grid to position your fleet.
+- **Randomized Enemy Fleet**: The enemy's ships are placed randomly for a unique experience each time.
+- **Real-Time Gameplay**: Turn-based mechanics with instant feedback on hits and misses.
+- **Win/Loss Conditions**: Victory is achieved by sinking all enemy ships, while a loss occurs if all your ships are sunk.
 
-<br>
-</details>
+### Enemy Actions
 
-<details>
-<summary>Português</summary>
-<br>
+Currently, enemy actions are randomized, meaning the enemy selects its moves without strategic targeting. Therefore, there is potential for improvement, such as implementing a more advanced logic that targets known ship locations intelligently.
 
-### Batalha Naval
+### Deployment
 
-Projeto da [TheOdinProject](https://www.theodinproject.com/lessons/node-path-javascript-battleship).
-
-Esse projeto consiste na implementação do clássico jogo "Batalha Naval".
-
-Há 5 navios (tamanhos: 5, 4, 3, 2 e 1) para posicionar em um tabuleiro 10x10.
-
-Os navios inimigos são posicionados aleatoriamente.
-
-O jogo termina quando você acerta todos os navios inimigos ou quando o inimigo acerta todos os seus.
-
-Link de deploy: https://cantarinog.github.io/top-battleship/
-
-<br>
-</details>
+Play the game here: [Battleship](https://cantarinog.github.io/top-battleship/).
